@@ -6,12 +6,12 @@ import argparse
 #-----------------------------------------------------------------------
 
 parser = argparse.ArgumentParser(description='Merge two PDF files.')
-parser.add_argument('pdfs', type=str, nargs=2,
+parser.add_argument('pdf', type=str, nargs=2,
                     help='filepaths to the two PDF files to be merged')
 
 args = parser.parse_args()
-first_pdf_filepath = args.pdfs[0]
-second_pdf_filepath = args.pdfs[1]
+first_pdf_filepath = args.pdf[0]
+second_pdf_filepath = args.pdf[1]
 
 #-----------------------------------------------------------------------
 # Run
