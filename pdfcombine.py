@@ -14,6 +14,7 @@ num_page_fronts = page_fronts_file.getNumPages()
 num_page_backs = page_backs_file.getNumPages()
 
 if num_page_backs != num_page_fronts:
+    print("Number of page fronts and backs does not match.")
     raise ValueError
 else:
     # Reverse page backs
