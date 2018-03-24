@@ -1,7 +1,25 @@
 from PyPDF2 import PdfFileWriter, PdfFileReader
+import argparse
 
-page_fronts_file = PdfFileReader('example/fronts123.pdf', 'rb')
-page_backs_file = PdfFileReader('example/backs321.pdf', 'rb')
+#-----------------------------------------------------------------------
+# Argument Parser
+#-----------------------------------------------------------------------
+
+parser = argparse.ArgumentParser(description='Merge two PDF files.')
+parser.add_argument('pdfs', type=str, nargs=2,
+                    help='filepaths to the two PDF files to be merged')
+
+args = parser.parse_args()
+first_pdf_filepath = args.pdfs[0]
+second_pdf_filepath = args.pdfs[1]
+
+#-----------------------------------------------------------------------
+# Run
+#-----------------------------------------------------------------------
+
+# Creating PDF objects
+page_fronts_file = PdfFileReader(first_pdf_filepath, 'rb')
+page_backs_file = PdfFileReader(second_pdf_filepath, 'rb')
 
 output = PdfFileWriter()
 
