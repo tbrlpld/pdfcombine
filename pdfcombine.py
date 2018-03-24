@@ -1,5 +1,6 @@
 from PyPDF2 import PdfFileWriter, PdfFileReader
 import argparse
+import os
 
 #-----------------------------------------------------------------------
 # Argument Parser
@@ -42,6 +43,10 @@ else:
     for i in range(0, page_fronts_file.getNumPages()):
         output.addPage(page_fronts[i])
         output.addPage(page_backs[i])
-    
-    with open('combined.pdf', 'wb') as f:
+
+    output_dir = dir_path = os.path.dirname(
+        os.path.realpath(first_pdf_filepath))
+    output_filepath = output_dir + "/combinedNoDuplexPDFs.pdf" 
+    # print("output_filepath is {}".format(output_filepath))
+    with open(output_filepath, 'wb') as f:
         output.write(f)
